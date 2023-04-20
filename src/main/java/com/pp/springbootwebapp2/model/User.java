@@ -1,5 +1,6 @@
 package com.pp.springbootwebapp2.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -32,9 +33,9 @@ public class User {
         name = "users_ruoli",
         joinColumns = @JoinColumn(
             name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id")
+            inverseJoinColumns = @JoinColumn(name = "ruoli_id",referencedColumnName = "id")
         )
-    private List<Ruolo> ruoli;
+    private List<Ruolo> ruoli = new ArrayList<>();
 
     public User(){
 
