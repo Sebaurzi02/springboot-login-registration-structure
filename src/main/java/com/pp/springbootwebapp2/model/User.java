@@ -41,7 +41,8 @@ public class User {
 
     }
 
-    public User(String name , String password , List<Ruolo> ruoli){
+    public User(Integer id,String name , String password , List<Ruolo> ruoli){
+        this.id=id;
         this.name = name;
         this.password = password;
         this.ruoli = ruoli;

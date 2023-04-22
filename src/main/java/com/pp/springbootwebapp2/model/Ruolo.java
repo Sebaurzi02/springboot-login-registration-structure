@@ -27,7 +27,8 @@ public class Ruolo {
 
     }
 
-    public Ruolo(String rname, List<User> utenti){
+    public Ruolo(Integer id,String rname, List<User> utenti){
+        this.id=id;
         this.rname=rname;
         this.utenti=utenti;
     }
