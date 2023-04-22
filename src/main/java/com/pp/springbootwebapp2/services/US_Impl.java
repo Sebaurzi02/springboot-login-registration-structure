@@ -1,6 +1,7 @@
 package com.pp.springbootwebapp2.services;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -43,6 +44,14 @@ public class US_Impl implements UserService {
 
         utente.setRuoli(Arrays.asList(ruolo));
         userRepository.save(utente);
+    }
+
+    @Override
+    public Optional<User> findById(Integer id){
+        if(userRepository.findById(id).isPresent()){
+            return userRepository.findById(id);
+        }
+        else return null;
     }
 
 
