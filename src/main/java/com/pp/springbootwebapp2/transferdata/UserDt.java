@@ -7,7 +7,7 @@ public class UserDt {
 
     public UserDt(){}
 
-    public UserDt(String name , String password,Integer id){
+    public UserDt(Integer id,String name , String password){
         this.id=id;
         this.name = name;
         this.password = password;
