@@ -3,7 +3,7 @@ TIROCINIO 6 CFU SEBASTIANO URZI' 100016793 DMI-UNICT CORSO DI LAUREA TRIENNALE I
 SpringBoot WebApp
 Front-end -> Thymeleaf 
 
-Back-end -> User registration , User service login , Spring Security , User repository
-DB -> Spring JPA , MySQL
+Back-end -> User service registration , User service login , Spring Security , Repository & DTO
+DB -> Spring Boot JPA , MySQL
 
-Dipendenze -> JPA , MySQL , SpringBoot Security , Spring Web , Spring Boot Dev Tools, Thymeleaf , lombok
+Dipendenze -> JPA , MySQL , SpringBoot Security , Spring Web , Spring Boot Dev Tools, Thymeleaf
