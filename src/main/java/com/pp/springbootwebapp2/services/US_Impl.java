@@ -38,7 +38,7 @@ public class US_Impl implements UserService {
     private UserDt mapToUserDt(User utente){
         UserDt userDt = new UserDt();
         userDt.setName(utente.getName());
-        return userDt;
+        return userDt; 
     }
 
     @Override
