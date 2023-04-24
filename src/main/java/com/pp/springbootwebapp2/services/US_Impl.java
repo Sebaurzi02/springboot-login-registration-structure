@@ -2,7 +2,6 @@ package com.pp.springbootwebapp2.services;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -57,9 +56,17 @@ public class US_Impl implements UserService {
     }
 
     @Override
-    public Optional<User> findById(Integer id){
+    public User findById(Integer id){
         if(userRepository.findById(id).isPresent()){
-            return userRepository.findById(id);
+            return userRepository.findById(id).get();
+        }
+        else return null;
+    }
+
+    @Override
+    public User findByName(String name){
+        if(userRepository.findByName(name).isPresent()){
+            return userRepository.findByName(name).get();
         }
         else return null;
     }
