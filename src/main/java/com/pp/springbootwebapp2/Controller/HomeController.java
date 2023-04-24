@@ -1,5 +1,6 @@
 package com.pp.springbootwebapp2.Controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,6 +17,7 @@ import jakarta.validation.Valid;
 @Controller
 public class HomeController {
 
+    @Autowired
     private UserService userService;
     
     @GetMapping("/login")
@@ -33,7 +35,7 @@ public class HomeController {
     @PostMapping("/signup/save")
     public String registrazione(@Valid @ModelAttribute("utente") UserDt userDt, BindingResult risultato,Model model){
         User exiUser = userService.findByName(userDt.getName());
-        if(exiUser!= null){
+        if(exiUser!= null  && exiUser.getName() != null && !exiUser.getName().isEmpty()){
             risultato.rejectValue("id",null,"There is already  an account registered");
         }
 
@@ -42,7 +44,7 @@ public class HomeController {
             return "/signup";
         }
         userService.salvaUtente(userDt);
-        return "redirect:/register?succes";
+        return "redirect:/signup?succes";
     }
     
 }
