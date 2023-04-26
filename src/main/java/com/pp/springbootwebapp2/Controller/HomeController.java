@@ -36,12 +36,12 @@ public class HomeController {
     public String registrazione(@Valid @ModelAttribute("utente") UserDt userDt, BindingResult risultato,Model model){
         User exiUser = userService.findByName(userDt.getName());
         if(exiUser!= null  && exiUser.getName() != null && !exiUser.getName().isEmpty()){
-            risultato.rejectValue("id",null,"There is already  an account registered");
+            risultato.rejectValue("name",null,"There is already  an account registered");
         }
 
         if(risultato.hasErrors()){
             model.addAttribute("utente", userDt);
-            return "/signup";
+            return "registrazione";
         }
         userService.salvaUtente(userDt);
         return "redirect:/signup?succes";
