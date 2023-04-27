@@ -18,6 +18,7 @@ import com.pp.springbootwebapp2.transferdata.UserDt;
 public class US_Impl implements UserService {
     private UserRepository userRepository;
     private RuoliRepository ruoliRepository;
+    
     @Autowired
     private PasswordEncoder passwordEncoder;
 
