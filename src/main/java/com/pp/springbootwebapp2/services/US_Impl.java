@@ -47,7 +47,7 @@ public class US_Impl implements UserService {
         utente.setName(userDt.getName());
         utente.setPassword(passwordEncoder.encode(userDt.getPassword()));
 
-        Ruolo ruolo = ruoliRepository.findByRname("RUOLO_ADMIN");
+        Ruolo ruolo = ruoliRepository.findByRname("ROLE_ADMIN");
         if(ruolo == null){
             ruolo = cheackRuolo();
         }
