@@ -1,7 +1,6 @@
 package com.pp.springbootwebapp2.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -14,13 +13,14 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users",uniqueConstraints = {@UniqueConstraint(columnNames = {"name"})})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
 
     @Column(nullable = false)
     private String name;
@@ -35,24 +35,24 @@ public class User {
             name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "ruoli_id",referencedColumnName = "id")
         )
-    private List<Ruolo> ruoli = new ArrayList<>();
+    private Set<Ruolo> ruoli;
 
     public User(){
 
     }
 
-    public User(Integer id,String name , String password , List<Ruolo> ruoli){
+    public User(long id,String name , String password , Set<Ruolo> ruoli){
         this.id=id;
         this.name = name;
         this.password = password;
         this.ruoli = ruoli;
     }
 
-    public Integer getId(){
+    public long getId(){
         return id;
     }
 
-    public void setId(Integer id){
+    public void setId(long id){
         this.id=id;
     }
 
@@ -72,11 +72,11 @@ public class User {
         this.password=password;
     }
 
-    public List<Ruolo> getRuoli(){
+    public Set<Ruolo> getRuoli(){
         return ruoli;
     }
 
-    public void setRuoli(List<Ruolo> ruoli){
+    public void setRuoli(Set<Ruolo> ruoli){
         this.ruoli=ruoli;
     }
 }

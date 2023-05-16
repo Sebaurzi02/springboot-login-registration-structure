@@ -1,13 +1,10 @@
 package com.pp.springbootwebapp2.model;
 
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,28 +12,24 @@ import jakarta.persistence.Table;
 public class Ruolo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
 
-    @Column(nullable = false,unique = true)
+    @Column(length = 80)
     private String rname;
-
-    @ManyToMany(mappedBy="ruoli")
-    private List<User> utenti;
 
     public Ruolo(){
 
     }
 
-    public Ruolo(Integer id,String rname, List<User> utenti){
+    public Ruolo(long id,String rname){
         this.id=id;
         this.rname=rname;
-        this.utenti=utenti;
     }
 
-    public Integer getId(){
+    public long getId(){
         return id;
     }
-    public void setId(Integer id){
+    public void setId(long id){
         this.id=id;
     }
 
@@ -46,13 +39,4 @@ public class Ruolo {
     public void setRname(String rname){
         this.rname=rname;
     }
-
-    public List<User> getUtenti(){
-        return utenti;
-    }
-
-    public void setUtenti(List<User> utenti){
-        this.utenti=utenti;
-    }
-    
 }

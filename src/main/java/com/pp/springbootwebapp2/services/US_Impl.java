@@ -52,7 +52,7 @@ public class US_Impl implements UserService {
             ruolo = cheackRuolo();
         }
 
-        utente.setRuoli(Arrays.asList(ruolo));
+        //utente.setRuoli(Arrays.asList(ruolo));
         userRepository.save(utente);
     }
 
