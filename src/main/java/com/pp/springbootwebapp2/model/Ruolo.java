@@ -15,15 +15,15 @@ public class Ruolo {
     private long id;
 
     @Column(length = 80)
-    private String rname;
+    private String name;
 
     public Ruolo(){
 
     }
 
-    public Ruolo(long id,String rname){
+    public Ruolo(long id,String name){
         this.id=id;
-        this.rname=rname;
+        this.name=name;
     }
 
     public long getId(){
@@ -33,10 +33,10 @@ public class Ruolo {
         this.id=id;
     }
 
-    public String getRname(){
-        return rname;
+    public String getName(){
+        return name;
     }
-    public void setRname(String rname){
-        this.rname=rname;
+    public void setName(String rname){
+        this.name=rname;
     }
 }

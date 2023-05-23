@@ -27,7 +27,7 @@ public class UserService implements UserDetailsService {
 		User user = userRepository.findByName(name).orElseThrow(() -> new UsernameNotFoundException("Username not found with :"+name));
 		Set<GrantedAuthority> authority = user.getRuoli()
 				.stream()
-				.map((ruolo) -> new SimpleGrantedAuthority(ruolo.getRname())).collect(Collectors.toSet());
+				.map((ruolo) -> new SimpleGrantedAuthority(ruolo.getName())).collect(Collectors.toSet());
 		
 		return new org.springframework.security.core.userdetails.User(user.getName(),user.getPassword(),authority);
 
